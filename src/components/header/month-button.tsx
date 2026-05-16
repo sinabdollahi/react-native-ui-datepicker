@@ -15,6 +15,7 @@ const MonthButton = () => {
     classNames,
     disableMonthPicker,
     monthCaptionFormat,
+    components,
   } = useCalendarContext();
 
   const currentMonthText = dayjs(currentDate)
@@ -24,12 +25,25 @@ const MonthButton = () => {
     )
     .format(monthCaptionFormat === 'full' ? 'MMMM' : 'MMM');
 
+  const handlePress = () =>
+    setCalendarView(calendarView === 'month' ? 'day' : 'month');
+
+  if (components?.MonthSelector) {
+    return (
+      <>
+        {components.MonthSelector({
+          text: currentMonthText,
+          isOpen: calendarView === 'month',
+          onPress: disableMonthPicker ? () => {} : handlePress,
+        })}
+      </>
+    );
+  }
+
   return (
     <Pressable
       disabled={disableMonthPicker}
-      onPress={() =>
-        setCalendarView(calendarView === 'month' ? 'day' : 'month')
-      }
+      onPress={handlePress}
       testID="btn-month"
       accessibilityRole="button"
       accessibilityLabel={currentMonthText}

@@ -116,6 +116,24 @@ export type Styles = Partial<{
     | CalenderFlag]: ViewStyle | TextStyle | ImageStyle;
 }>;
 
+export type CalendarMonthSelectorProps = {
+  /** The formatted month name shown in the header (e.g. "January" or "فروردین") */
+  text: string;
+  /** Whether the month-picker view is currently open */
+  isOpen: boolean;
+  /** Toggles the month-picker view */
+  onPress: () => void;
+};
+
+export type CalendarYearSelectorProps = {
+  /** The formatted year or year-range shown in the header (e.g. "2025" or "2024 - 2035") */
+  text: string;
+  /** Whether the year-picker view is currently open */
+  isOpen: boolean;
+  /** Toggles the year-picker view */
+  onPress: () => void;
+};
+
 export type CalendarComponents = Partial<{
   /** The component containing the day in the days grid */
   Day: (day: CalendarDay) => React.ReactNode;
@@ -129,6 +147,10 @@ export type CalendarComponents = Partial<{
   IconPrev: React.ReactNode;
   /** The next month button/year icon in the header */
   IconNext: React.ReactNode;
+  /** Fully replaces the month selector button in the header */
+  MonthSelector: (props: CalendarMonthSelectorProps) => React.ReactNode;
+  /** Fully replaces the year selector button in the header */
+  YearSelector: (props: CalendarYearSelectorProps) => React.ReactNode;
 }>;
 
 export interface DatePickerBaseProps {

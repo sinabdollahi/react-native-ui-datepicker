@@ -60,6 +60,13 @@ export interface DatePickerRangeProps extends DatePickerBaseProps {
   startDate?: DateType;
   endDate?: DateType;
   onChange?: RangeChange;
+  /**
+   * When `true`, tapping any date while a complete range (both startDate and
+   * endDate) is selected will clear the endDate and begin a fresh selection
+   * with the tapped date as the new startDate, regardless of whether the
+   * tapped day falls inside the range, on the start, or on the end.
+   */
+  allowRangeReset?: boolean;
 }
 
 export interface DatePickerMultipleProps extends DatePickerBaseProps {
@@ -116,6 +123,11 @@ const DateTimePicker = (
     onYearChange = () => {},
     use12Hours,
   } = props;
+
+  const allowRangeReset =
+    mode === 'range'
+      ? (props as DatePickerRangeProps).allowRangeReset
+      : undefined;
 
   dayjs.tz.setDefault(timeZone);
   dayjs.calendar(calendar);
@@ -385,6 +397,7 @@ const DateTimePicker = (
     prevTimezone,
     timeZone,
     calendar,
+    onChange,
   ]);
 
   const setCalendarView = useCallback((view: CalendarViews) => {
@@ -412,6 +425,15 @@ const DateTimePicker = (
           let start = removeTime(stateRef.current.startDate, timeZone);
           let end = removeTime(stateRef.current.endDate, timeZone);
           const selected = removeTime(selectedDate, timeZone);
+
+          if (allowRangeReset && start && end) {
+            (onChange as RangeChange)({
+              startDate: dayjs(selected).toDate(),
+              endDate: undefined,
+            });
+            return;
+          }
+
           let isStart: boolean = true;
           let isReset: boolean = false;
 
