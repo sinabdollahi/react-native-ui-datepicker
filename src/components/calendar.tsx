@@ -24,15 +24,17 @@ const Calendar = () => {
     styles = {},
     classNames = {},
     containerHeight,
+    containerStyle: containerStyleProps,
     navigationPosition,
     isRTL,
   } = useCalendarContext();
 
   const containerStyle: ViewStyle = useMemo(
     () => ({
+      ...containerStyleProps,
       height: containerHeight,
     }),
-    [containerHeight]
+    [containerHeight, containerStyleProps]
   );
 
   return (

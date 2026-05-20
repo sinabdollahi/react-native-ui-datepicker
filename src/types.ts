@@ -178,6 +178,7 @@ export interface DatePickerBaseProps {
   use12Hours?: boolean;
   initialView?: CalendarViews;
   containerHeight?: number;
+  containerStyle?: ViewStyle;
   weekdaysHeight?: number;
   style?: ViewStyle;
   className?: string;

@@ -154,7 +154,8 @@ DateTimePicker comes with a minimal style, making it easy to extend and customiz
 
 | Name              | Type            | Description                                                     |
 | ----------------- | --------------- | --------------------------------------------------------------- |
-| `style`           | `ViewStyle`     | style for the calendar container.                               |
+| `style`           | `ViewStyle`     | Style for the outer calendar container (header and body).       |
+| `containerStyle`  | `ViewStyle`     | Style for the inner calendar body (day, month, year, or time view). Does not override `containerHeight`. |
 | `className`       | `string`        | className for the calendar container.                           |
 | `styles`          | `Styles`        | Custom styles for specific components inside the calendar.      |
 | `classNames`      | `ClassNames`    | Custom classNames for specific components inside the calendar.  |

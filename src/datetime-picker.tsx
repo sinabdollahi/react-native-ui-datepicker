@@ -122,6 +122,7 @@ const DateTimePicker = (
     onMonthChange = () => {},
     onYearChange = () => {},
     use12Hours,
+    containerStyle,
   } = props;
 
   const allowRangeReset =
@@ -723,6 +724,7 @@ const DateTimePicker = (
       ...handlerContextValue,
       ...styleContextValue,
       components: memoizedComponents,
+      containerStyle,
     }),
     [
       state,
@@ -730,6 +732,7 @@ const DateTimePicker = (
       handlerContextValue,
       styleContextValue,
       memoizedComponents,
+      containerStyle,
     ]
   );
 
