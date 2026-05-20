@@ -114,6 +114,7 @@ const DateTimePicker = (
     multiRangeMode,
     hideHeader,
     hideWeekdays,
+    showMonthSelector,
     disableMonthPicker,
     disableYearPicker,
     components = {},
@@ -652,6 +653,7 @@ const DateTimePicker = (
       multiRangeMode,
       hideHeader,
       hideWeekdays,
+      showMonthSelector,
       disableMonthPicker,
       disableYearPicker,
       style,
@@ -682,6 +684,7 @@ const DateTimePicker = (
       multiRangeMode,
       hideHeader,
       hideWeekdays,
+      showMonthSelector,
       disableMonthPicker,
       disableYearPicker,
       style,
@@ -725,6 +728,7 @@ const DateTimePicker = (
       ...styleContextValue,
       components: memoizedComponents,
       containerStyle,
+      showMonthSelector,
     }),
     [
       state,
@@ -733,6 +737,7 @@ const DateTimePicker = (
       styleContextValue,
       memoizedComponents,
       containerStyle,
+      showMonthSelector,
     ]
   );
 

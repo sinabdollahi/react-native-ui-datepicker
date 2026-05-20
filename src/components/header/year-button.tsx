@@ -20,17 +20,17 @@ const YearButton = () => {
   } = useCalendarContext();
 
   const years = getYearRange(currentYear);
+  const isYearView = calendarView === 'year';
 
-  const yearText =
-    calendarView === 'year'
-      ? `${formatNumber(years[0] || 0, numerals)} - ${formatNumber(years[years.length - 1] || 0, numerals)}`
-      : formatNumber(
-          parseInt(dayjs(currentDate).calendar(calendar).format('YYYY')),
-          numerals
-        );
+  const year = formatNumber(
+    parseInt(dayjs(currentDate).calendar(calendar).format('YYYY')),
+    numerals
+  );
+  const yearRange = `${formatNumber(years[0] || 0, numerals)} - ${formatNumber(years[years.length - 1] || 0, numerals)}`;
+  const label = isYearView ? yearRange : year;
 
   const handlePress = () => {
-    setCalendarView(calendarView === 'year' ? 'day' : 'year');
+    setCalendarView(isYearView ? 'day' : 'year');
     onChangeYear(getDateYear(currentDate));
   };
 
@@ -38,8 +38,9 @@ const YearButton = () => {
     return (
       <>
         {components.YearSelector({
-          text: yearText,
-          isOpen: calendarView === 'year',
+          year,
+          yearRange,
+          isOpen: isYearView,
           onPress: disableYearPicker ? () => {} : handlePress,
         })}
       </>
@@ -62,7 +63,7 @@ const YearButton = () => {
           style={styles?.year_selector_label}
           className={classNames?.year_selector_label}
         >
-          {yearText}
+          {label}
         </Text>
       </View>
     </Pressable>

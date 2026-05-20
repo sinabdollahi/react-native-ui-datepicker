@@ -145,6 +145,7 @@ export function Calendar() {
 | `monthCaptionFormat` | `"short"` \| `"full"`               | Defines the format for displaying the month caption.      |
 | `hideHeader`         | `boolean`                           | Whether to hide the calendar header.                      |
 | `hideWeekdays`       | `boolean`                           | Whether to hide the weekdays row.                         |
+| `showMonthSelector`  | `boolean`                           | When `true`, always show the month selector (including in year view). When `false`, hide it. When omitted, show except in year view. |
 | `disableMonthPicker` | `boolean`                           | Whether to disable the month picker.                      |
 | `disableYearPicker`  | `boolean`                           | Whether to disable the year picker.                       |
 
