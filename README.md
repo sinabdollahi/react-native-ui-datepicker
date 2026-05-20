@@ -119,6 +119,7 @@ export function Calendar() {
 | `onChange`  | `({startDate, endDate}) => void` | Callback function triggered when the start and end change. |
 | `min`       | `number`                         | Defines the minimum allowed nights.                        |
 | `max`       | `number`                         | Defines the maximum allowed nights.                        |
+| `allowRangeReset` | `boolean`                  | When `true`, tapping any date while a complete range is selected clears the end date and starts a fresh selection from the tapped date. Defaults to `false`. |
 
 ## Multiple Mode props
 
