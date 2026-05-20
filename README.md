@@ -145,6 +145,7 @@ export function Calendar() {
 | `monthCaptionFormat` | `"short"` \| `"full"`               | Defines the format for displaying the month caption.      |
 | `hideHeader`         | `boolean`                           | Whether to hide the calendar header.                      |
 | `hideWeekdays`       | `boolean`                           | Whether to hide the weekdays row.                         |
+| `showMonthSelector`  | `boolean`                           | When `true`, always show the month selector (including in year view). When `false`, hide it. When omitted, show except in year view. |
 | `disableMonthPicker` | `boolean`                           | Whether to disable the month picker.                      |
 | `disableYearPicker`  | `boolean`                           | Whether to disable the year picker.                       |
 
@@ -154,7 +155,8 @@ DateTimePicker comes with a minimal style, making it easy to extend and customiz
 
 | Name              | Type            | Description                                                     |
 | ----------------- | --------------- | --------------------------------------------------------------- |
-| `style`           | `ViewStyle`     | style for the calendar container.                               |
+| `style`           | `ViewStyle`     | Style for the outer calendar container (header and body).       |
+| `containerStyle`  | `ViewStyle`     | Style for the inner calendar body (day, month, year, or time view). Does not override `containerHeight`. |
 | `className`       | `string`        | className for the calendar container.                           |
 | `styles`          | `Styles`        | Custom styles for specific components inside the calendar.      |
 | `classNames`      | `ClassNames`    | Custom classNames for specific components inside the calendar.  |

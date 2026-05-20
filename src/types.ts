@@ -126,8 +126,10 @@ export type CalendarMonthSelectorProps = {
 };
 
 export type CalendarYearSelectorProps = {
-  /** The formatted year or year-range shown in the header (e.g. "2025" or "2024 - 2035") */
-  text: string;
+  /** Formatted active year from the current date (e.g. "2025") */
+  year: string;
+  /** Formatted visible year range in the year picker (e.g. "2020 - 2029") */
+  yearRange: string;
   /** Whether the year-picker view is currently open */
   isOpen: boolean;
   /** Toggles the year-picker view */
@@ -178,6 +180,7 @@ export interface DatePickerBaseProps {
   use12Hours?: boolean;
   initialView?: CalendarViews;
   containerHeight?: number;
+  containerStyle?: ViewStyle;
   weekdaysHeight?: number;
   style?: ViewStyle;
   className?: string;
@@ -190,6 +193,11 @@ export interface DatePickerBaseProps {
   multiRangeMode?: boolean;
   hideHeader?: boolean;
   hideWeekdays?: boolean;
+  /**
+   * When `true`, always show the month selector (including in year view).
+   * When `false`, hide it. When omitted, show it except in year view.
+   */
+  showMonthSelector?: boolean;
   disableMonthPicker?: boolean;
   disableYearPicker?: boolean;
   components?: CalendarComponents;
